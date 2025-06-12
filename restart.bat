@@ -1,0 +1,6 @@
+@echo off
+echo 正在清理端口占用...
+taskkill /F /IM node.exe 2>nul
+taskkill /F /IM electron.exe 2>nul
+timeout 2 >nul
+echo 重新启动应用...
