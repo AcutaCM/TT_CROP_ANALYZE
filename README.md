@@ -1,5 +1,7 @@
 # TT_CROP_ANALYZE - 智能农业无人机分析系统
 
+[image:https://www-cdn.djiits.com/cms/uploads/0473fcbd4798e8234950eaf4b8535bf8.png]
+
 这是TTtalentDev开发的智能农业无人机分析系统，用于农业领域的智能分析和监控。
 
 ## 功能特点
