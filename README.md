@@ -21,12 +21,12 @@ TT_CROP_ANALYZE 是一款专业的智能农业无人机分析系统，集成了�
 
 ###  核心亮点
 
-- ** AI 智能分析**：基于 DashScope 的专业农作物健康评估
-- ** 实时控制**：Tello 无人机实时视频流与飞行控制
-- ** 挑战卡巡航**：支持自定义航线参数的智能巡航
-- ** 数据可视化**：实时统计面板与分析报告导出
-- ** 个性化**：6+ 主题与壁纸，支持自定义上传
-- ** 跨平台**：Windows/macOS/Linux 一键打包部署
+- AI 智能分析：基于 DashScope 的专业农作物健康评估
+- 实时控制：Tello 无人机实时视频流与飞行控制
+- 挑战卡巡航：支持自定义航线参数的智能巡航
+- 数据可视化：实时统计面板与分析报告导出
+- 个性化：6+ 主题与壁纸，支持自定义上传
+- 跨平台：Windows/macOS/Linux 一键打包部署
 
 ---
 
@@ -80,7 +80,7 @@ TT_CROP_ANALYZE 是一款专业的智能农业无人机分析系统，集成了�
 
 ###  克隆项目
 ```bash
-git clone https://github.com/YourUsername/TT_CROP_ANALYZE.git
+git clone https://github.com/ActuaCM/TT_CROP_ANALYZE.git
 cd TT_CROP_ANALYZE/electron-drone-analyzer2/electron-drone-analyzer
 ```
 
@@ -318,7 +318,7 @@ copies or substantial portions of the Software.
 
 <div align="center">
 
-** 让智能农业触手可及 | Making Smart Agriculture Accessible**
+ 让智能农业触手可及 | Making Smart Agriculture Accessible
 
 Made with ❤️ by TTtalentDev Team
 
