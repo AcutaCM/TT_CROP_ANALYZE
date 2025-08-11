@@ -1,209 +1,325 @@
-# TT_CROP_ANALYZE - 智能农业无人机分析系统
+<div align="center"><h1>  TT_CROP_ANALYZE · 智能农业无人机分析系统</h1></div>
 
-[image:https://www-cdn.djiits.com/cms/uploads/0473fcbd4798e8234950eaf4b8535bf8.png]
+<div align="center">
 
-这是TTtalentDev开发的智能农业无人机分析系统，用于农业领域的智能分析和监控。
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-green.svg)](https://nodejs.org)
+[![Electron](https://img.shields.io/badge/Electron-27.0+-purple.svg)](https://electronjs.org)
 
-## 功能特点
+**一个基于 Electron + Python 的无人机农作物智能分析系统**
 
-- 实时无人机视频流监控
-- 作物健康状态分析
-- 智能图像处理和分析
-- 用户友好的图形界面
-- 数据可视化展示
-- 自动化报告生成
+[功能特性](#-功能特性) • [快速开始](#-快速开始) • [用户手册](docs/USER_GUIDE.md) • [更新日志](CHANGELOG.md)
 
-## 系统要求
+</div>
 
-### 硬件要求
-- 支持WiFi的Tello无人机
-- 摄像头（用于人脸识别功能）
-- 至少4GB RAM的计算机
-- 稳定的网络连接
+---
 
-### 软件要求
-- Windows 10/11 或 Linux
-- Node.js v14.0.0 或更高版本
-- Python 3.8+
-- Git
+##  项目简介
 
-## 详细安装步骤
+TT_CROP_ANALYZE 是一款专业的智能农业无人机分析系统，集成了实时视频监控、AI 作物健康分析、挑战卡巡航、数据可视化等功能。支持跨平台部署，提供直观的用户界面和丰富的个性化选项。
 
-### 1. 克隆项目
+###  核心亮点
+
+- ** AI 智能分析**：基于 DashScope 的专业农作物健康评估
+- ** 实时控制**：Tello 无人机实时视频流与飞行控制
+- ** 挑战卡巡航**：支持自定义航线参数的智能巡航
+- ** 数据可视化**：实时统计面板与分析报告导出
+- ** 个性化**：6+ 主题与壁纸，支持自定义上传
+- ** 跨平台**：Windows/macOS/Linux 一键打包部署
+
+---
+
+##  功能特性
+
+###  核心功能
+- **实时视频监控**：高清视频流处理，状态叠加显示（FPS、连接状态、识别框等）
+- **AI 作物分析**：
+  - 作物健康评分与病虫害检测
+  - 营养状态分析与生长阶段判断
+  - 专业模拟模式（无需 API 即可体验）
+- **挑战卡巡航**：
+  - 参数化航线设置
+  - 自动起降与寻迹
+  - 实时状态回传与异常处理
+
+###  用户体验
+- **模块化面板**：连接/控制/分析/报告/配置分离式界面
+- **主题系统**：深色、浅色、赛博朋克、自然、极简、日落 6 种预设主题
+- **壁纸系统**：
+  - 6+ 预设壁纸（太空星云、农场风景、科技电路等）
+  - 自定义图片上传
+  - 透明度与模糊度实时调节
+- **快捷键支持**：Ctrl/Cmd + E 一键导出报告
+- **智能通知**：操作反馈与错误提示
+
+###  数据管理
+- **报告导出**：支持 CSV/JSON 格式，包含完整分析数据
+- **设置持久化**：主题、壁纸、配置自动保存
+- **安全管理**：API Key 环境变量优先，避免硬编码泄露
+
+---
+
+##  环境要求
+
+###  系统要求
+- **操作系统**：Windows 10/11（推荐）/ macOS / Linux
+- **运行时**：
+  - Node.js 18+
+  - Python 3.8+
+- **硬件**：支持 WiFi 的 Tello 无人机（可选）
+
+###  依赖库
+- **前端**：Electron, Express, WebSocket
+- **后端**：OpenCV, NumPy, DashScope SDK, djitellopy
+- **AI 分析**：可选安装 DashScope（未安装时自动启用模拟模式）
+
+---
+
+##  快速开始
+
+###  克隆项目
 ```bash
-git clone https://github.com/AcutaCM/TT_CROP_ANALYZE.git
-cd TT_CROP_ANALYZE
+git clone https://github.com/YourUsername/TT_CROP_ANALYZE.git
+cd TT_CROP_ANALYZE/electron-drone-analyzer2/electron-drone-analyzer
 ```
 
-### 2. Python环境配置
-1. 创建虚拟环境：
+###  Python 环境配置
 ```bash
+# 创建虚拟环境
 python -m venv .venv
-```
 
-2. 激活虚拟环境：
-- Windows:
-```bash
-.venv\Scripts\activate
-```
-- Linux/Mac:
-```bash
+# 激活虚拟环境 (Windows)
+.\.venv\Scripts\activate
+
+# 激活虚拟环境 (macOS/Linux)
 source .venv/bin/activate
-```
 
-3. 安装Python依赖：
-```bash
+# 安装依赖
 pip install -r requirements.txt
 ```
 
-### 3. Node.js环境配置
-1. 安装Node.js依赖：
+###  Node.js 环境配置
 ```bash
+# 安装前端依赖
 npm install
 ```
 
-2. 安装Electron：
+###  API 配置（推荐）
 ```bash
-npm install electron --save-dev
+# 设置环境变量 (Windows)
+setx DASHSCOPE_API_KEY "your-dashscope-api-key"
+setx DASHSCOPE_APP_ID "your-dashscope-app-id"
+
+# 设置环境变量 (macOS/Linux)
+export DASHSCOPE_API_KEY="your-dashscope-api-key"
+export DASHSCOPE_APP_ID="your-dashscope-app-id"
 ```
 
-### 4. 配置文件设置
-1. 复制配置文件模板：
+###  启动应用
+
+**开发模式（推荐）：**
 ```bash
-cp config.json.example config.json
-```
-
-2. 修改`config.json`中的配置：
-```json
-{
-    "drone": {
-        "ip": "192.168.10.1",
-        "port": 8889
-    },
-    "api": {
-        "dashscope_key": "你的DashScope API密钥"
-    }
-}
-```
-
-### 5. 模型文件准备
-1. 下载YOLOv8模型：
-```bash
-wget https://github.com/ultralytics/assets/releases/download/v0.0.0/yolov8n.pt
-```
-
-2. 将模型文件放置在`models`目录下
-
-## 运行应用
-
-### 开发模式
-1. 启动Python后端：
-```bash
+# 终端 1：启动后端
 python drone_backend.py
-```
 
-2. 启动Electron前端：
-```bash
+# 终端 2：启动前端
 npm start
 ```
 
-### 生产模式
-使用提供的批处理文件：
+**生产模式：**
 ```bash
+# 一键启动（Windows）
 .\restart.bat
+
+# 或构建可执行文件
+npm run build-win  # Windows
+npm run build-mac  # macOS
+npm run build-linux  # Linux
 ```
 
-## 项目结构说明
+---
 
+##  配置与安全建议
+
+### API Key 管理
+为确保安全，系统采用以下优先级获取 API 配置：
+
+1. **环境变量**（推荐）：`DASHSCOPE_API_KEY`, `DASHSCOPE_APP_ID`
+2. **前端界面**：配置面板输入（保存到 localStorage）
+3. **配置文件**：`config.json`（仅开发调试）
+
+**配置模板示例：**
+```json
+{
+  "dashscope_api_key": "",
+  "dashscope_app_id": "",
+  "note": "请通过环境变量或前端界面设置 API 密钥"
+}
 ```
-TT_CROP_ANALYZE/
-├── main.js              # Electron主进程
-├── index.html           # 主界面
-├── styles/             # CSS样式文件
-├── scripts/            # 前端脚本
-├── python_backend/     # Python后端代码
-├── drone_backend.py    # 无人机控制后端
-├── crop_analyzer_dashscope.py  # 作物分析模块
-├── error_check.py      # 错误检测模块
-├── config.json         # 配置文件
-└── models/            # AI模型文件
-```
 
-## 主要模块功能
+---
 
-- `drone_backend.py`: 
-  - 无人机连接控制
-  - 视频流处理
-  - 飞行指令发送
-  - 状态监控
+##  个性化设置
 
-- `crop_analyzer_dashscope.py`: 
-  - 作物图像分析
-  - 健康状态评估
-  - 数据统计处理
+###  主题系统
+- **预设主题**：深色、浅色、赛博朋克、自然、极简、日落
+- **特性**：一键切换、自动保存、即时预览
 
-- `error_check.py`: 
-  - 系统状态监控
-  - 错误日志记录
-  - 异常处理
+###  壁纸系统
+- **预设壁纸**：默认渐变、太空星云、农场风景、科技电路、自然风光、抽象艺术
+- **自定义功能**：
+  - 本地图片上传
+  - 透明度调节（0-100%）
+  - 模糊度调节（0-20px）
+  - 一键删除自定义壁纸
 
-## 使用说明
+###  使用方法
+1. 点击顶部工具栏的主题/壁纸按钮
+2. 在弹出面板中选择或上传
+3. 设置即刻生效并自动保存
 
-1. 启动前检查：
-   - 确保无人机电量充足（>50%）
-   - 检查网络连接状态
-   - 确认摄像头权限
+---
 
-2. 操作流程：
-   - 启动应用
-   - 等待系统初始化
-   - 连接无人机
-   - 选择分析模式
-   - 开始任务
+##  快捷键
 
-3. 数据分析：
-   - 实时查看分析结果
-   - 导出分析报告
-   - 查看历史数据
+| 快捷键 | 功能 | 说明 |
+|--------|------|------|
+| `Ctrl/Cmd + E` | 导出报告 | 一键导出当前分析数据 |
 
-## 常见问题解决
+>  更多快捷键将在后续版本中添加，详见 [CHANGELOG.md](CHANGELOG.md)
 
-1. 无人机连接失败：
-   - 检查WiFi连接
-   - 确认IP地址配置
-   - 重启无人机
+---
 
-2. 视频流卡顿：
-   - 检查网络带宽
-   - 降低视频质量
-   - 关闭其他占用带宽的应用
 
-3. 分析结果不准确：
-   - 确保光照充足
-   - 调整飞行高度
-   - 更新AI模型
+##  常见问题 (FAQ)
 
-## 技术支持
+<details>
+<summary><strong> 无人机连接失败</strong></summary>
 
-- 项目地址：[https://github.com/AcutaCM/TT_CROP_ANALYZE](https://github.com/AcutaCM/TT_CROP_ANALYZE)
-- 问题反馈：请提交Issue
-- 邮件支持：[actuacm@163.com]
+**解决方案：**
+1. 确保已连接到 Tello 无人机的 WiFi 网络
+2. 检查防火墙设置，允许应用访问网络
+3. Windows 用户：关闭多余网卡或热点共享
+4. 重启无人机并在应用中重新连接
+5. 检查无人机电量是否充足（建议 >30%）
+</details>
 
-## 许可证
+<details>
+<summary><strong> 视频卡顿或延迟</strong></summary>
 
-[MIT]
+**解决方案：**
+1. 检查网络连接质量和稳定性
+2. 关闭其他占用带宽的应用程序
+3. 降低视频处理强度（暂停 AI 分析）
+4. 确保计算机性能充足，关闭不必要的后台程序
+</details>
 
-## 贡献指南
+<details>
+<summary><strong> AI 分析失败</strong></summary>
 
-1. Fork项目
-2. 创建特性分支
-3. 提交更改
-4. 推送到分支
-5. 创建Pull Request
+**解决方案：**
+1. 确认已正确设置 `DASHSCOPE_API_KEY` 和 `DASHSCOPE_APP_ID`
+2. 检查网络连接，确保可访问 DashScope 服务
+3. 使用应用内的"连接测试"功能验证 API 配置
+4. 如无 API 密钥，系统会自动启用"专业模拟模式"
+</details>
 
-## 更新日志
+<details>
+<summary><strong> 主题或壁纸无法加载</strong></summary>
 
-### v1.0.0
-- 初始版本发布
-- 基础功能实现
-- 用户界面优化
+**解决方案：**
+1. 检查浏览器 localStorage 权限
+2. 清除浏览器缓存并重启应用
+3. 确保上传的图片格式正确（JPG/PNG）
+4. 检查图片文件大小（建议 <5MB）
+</details>
+
+<details>
+<summary><strong> 报告导出失败</strong></summary>
+
+**解决方案：**
+1. 确保有分析数据可供导出
+2. 检查文件写入权限
+3. 尝试使用快捷键 `Ctrl/Cmd + E`
+4. 重启应用后重试
+</details>
+
+---
+
+##  开发与贡献
+
+我们欢迎社区贡献！参与方式：
+
+###  报告问题
+- 使用 [GitHub Issues](https://github.com/AcutaCM/TT_CROP_ANALYZE/issues) 报告 Bug
+- 提供详细的重现步骤和环境信息
+- 附上相关日志或截图
+
+###  功能建议
+- 通过 Issues 提交功能请求
+- 详细描述预期功能和使用场景
+- 参与讨论和设计
+
+###  代码贡献
+1. **Fork** 本仓库
+2. 创建特性分支：`git checkout -b feature/amazing-feature`
+3. 提交更改：`git commit -m 'Add amazing feature'`
+4. 推送分支：`git push origin feature/amazing-feature`
+5. 提交 **Pull Request**
+
+### 开发规范
+- 遵循现有代码风格和命名约定
+- 添加必要的注释和文档
+- 确保新功能与现有功能兼容
+- 提交前进行充分测试
+
+---
+
+##  许可证
+
+本项目采用 [MIT License](LICENSE) 开源协议。
+MIT License
+
+Copyright (c) 2025 TTtalentDev Team
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+---
+
+##  致谢
+
+感谢以下开源项目和社区的贡献：
+
+- **[Electron](https://electronjs.org/)** - 跨平台桌面应用框架
+- **[DashScope](https://dashscope.aliyun.com/)** - 阿里云大模型服务平台
+- **[djitellopy](https://github.com/damiafuentes/DJITelloPy)** - DJI Tello 无人机 Python SDK
+- **[OpenCV](https://opencv.org/)** - 计算机视觉库
+- **Node.js** 和 **Python** 开源社区
+
+---
+
+##  联系我们
+
+-  **邮箱**：[actuacm@163.com](mailto:actuacm@163.com)
+-  **问题反馈**：[GitHub Issues](https://github.com/ActuaCM/TT_CROP_ANALYZE/issues)
+-  **文档**：[用户手册](docs/USER_GUIDE.md) | [更新日志](CHANGELOG.md)
+-  **支持项目**：如果觉得有用，请给我们一个 Star
+
+---
+
+<div align="center">
+
+** 让智能农业触手可及 | Making Smart Agriculture Accessible**
+
+Made with ❤️ by TTtalentDev Team
+
+</div>
