@@ -9,7 +9,7 @@
 
 **一个基于 Electron + Python 的无人机农作物智能分析系统**
 
-[功能特性](#-功能特性) • [快速开始](#-快速开始) • [用户手册](USER_GUIDE.md) • [更新日志](CHANGELOG.md)
+[功能特性](#-功能特性) • [快速开始](#-快速开始) • [用户手册](User_Guide.md) • [更新日志](CHANGELOG.md)
 
 </div>
 
