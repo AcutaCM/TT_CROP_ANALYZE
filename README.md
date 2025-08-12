@@ -118,7 +118,7 @@ export DASHSCOPE_APP_ID="your-dashscope-app-id"
 
 ###  启动应用
 
-**开发模式（推荐）：**
+**开发模式（推荐/选择其一即可）：**
 ```bash
 # 终端 1：启动后端
 python drone_backend.py
@@ -130,7 +130,7 @@ npm start
 **生产模式：**
 ```bash
 # 一键启动（Windows）
-.\restart.bat
+.\start_with_python.bat
 
 # 或构建可执行文件
 npm run build-win  # Windows
