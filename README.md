@@ -193,6 +193,16 @@ npm run build-linux  # Linux
 
 
 ##  常见问题 (FAQ)
+<summary><strong> 提示pyzbar未知模块报错</strong></summary>
+
+**解决方案：**
+注释'drone_backend'中第50-57行内容（推荐）
+或使用
+```
+pip install pyzbar
+```
+（后续将移除Pyzbar库，不推荐）
+</details>
 
 <details>
 <summary><strong> 无人机连接失败</strong></summary>
