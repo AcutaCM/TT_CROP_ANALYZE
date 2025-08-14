@@ -52,3 +52,12 @@
 - electron-drone-analyzer/scripts/api.js
 - electron-drone-analyzer/drone_backend.py
 - electron-drone-analyzer/mission_controller.py（逻辑已核查，集成与调用路径已确认）
+
+------------------------------
+2025-8-14
+
+修改QRcode检测冷静期为22s
+删除了巡航自定义卡号
+优化了寻找挑战卡矫正
+集成python虚拟环境
+修复nodejs部分依赖包体过旧问题
